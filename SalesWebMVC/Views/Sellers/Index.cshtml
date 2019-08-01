@@ -19,6 +19,7 @@
             <th>@Html.DisplayNameFor(model => model.BirthDate) </th>
 
             <th>@Html.DisplayNameFor(model => model.BaseSalary) </th>
+            <th>Actions </th>
         </tr>
     </thead>
     <tbody>
@@ -35,7 +36,7 @@
                     @Html.DisplayFor(x => item.BirthDate)
                 </td>
                 <td>
-                    @Html.DisplayFor(x => item.BaseSalary)
+                    R$@Html.DisplayFor(x => item.BaseSalary)
                 </td>
                 <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
