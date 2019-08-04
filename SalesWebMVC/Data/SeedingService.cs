@@ -9,7 +9,7 @@ namespace SalesWebMVC.Data
 {
     public class SeedingService
     {
-        private SWContext db;
+        private readonly SWContext db;
 
         //public SeedingService()
         //{
