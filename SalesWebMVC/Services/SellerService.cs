@@ -37,8 +37,16 @@ namespace SalesWebMVC.Services
         {
             //var seller = _context.Seller.Where(x => x.Id == id).SingleOrDefault();
             var seller = await _context.Seller.SingleOrDefaultAsync(x => x.Id == id);
-            _context.Seller.Remove(seller);
-            await _context.SaveChangesAsync();  
+
+            try
+            {
+                _context.Seller.Remove(seller);
+                await _context.SaveChangesAsync();
+            }
+            catch(DbUpdateException e)
+            {
+                throw new IntegrityExeption("Vendedor possui vendas. Não pode ser excluído");
+            }
         }
         
         public async Task UpdateAsync(Seller obj)
